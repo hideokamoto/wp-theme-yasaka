@@ -830,7 +830,7 @@ a:active {
 ## Header
 --------------------------------------------------------------*/
 .site-header {
-	background-color: black;
+	background-color: rgb(27, 49, 85);
 	color: #fff;
 	box-shadow: 0px 1px 10px black;
 }
@@ -841,7 +841,7 @@ a:active {
 
 /* Site Title */
 .site-title {
-	margin: 10px auto;
+	margin: 40px auto;
 	text-align: center;
 }
 
