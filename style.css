@@ -1,13 +1,13 @@
 /*
-Theme Name: _s
+Theme Name: Yasaka
 Theme URI: http://underscores.me/
-Author: Automattic
-Author URI: http://automattic.com/
-Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Author: HideOkamoto
+Author URI: http://wp-kyoto.net/
+Description:  Tiled WordPress Blog Theme build by <code>_s</code>.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: _s
+Text Domain: Yasaka
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
@@ -380,7 +380,8 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 0.5em;
+	padding-left: 1em;
 }
 
 ul {
@@ -394,7 +395,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 0.5em;
 }
 
 dt {
@@ -517,13 +518,16 @@ a:active {
 	outline: 0;
 }
 
+
+
+
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
 }
 
@@ -542,13 +546,18 @@ a:active {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	padding: 10px;
+}
+
+.main-navigation a:hover {
+	background-color: #666;
 }
 
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
 	position: absolute;
-	top: 1.5em;
+	top: 2.5em;
 	left: -999em;
 	z-index: 99999;
 }
@@ -593,10 +602,35 @@ a:active {
 .main-navigation .current_page_ancestor > a {
 }
 
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
+}
+
+.menu-toggle {
+	width: 100%;
+	box-shadow: none;
+	border-radius: 0;
+	padding: 10px 20px;
+}
+
+.main-navigation.toggled li {
+	width: 100%;
+	float: none;
+}
+
+.main-navigation.toggled .sub-menu {
+	width: 100%;
+}
+
+.main-navigation .sub-menu a {
+	color: #000;
+}
+
+.main-navigation .sub-menu {
+	background-color: #fff;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -629,6 +663,40 @@ a:active {
 	text-align: right;
 	width: 50%;
 }
+
+/*--------------------------------------------------------------
+## Posts Navigation
+--------------------------------------------------------------*/
+.posts-navigation{
+    width: 96%;
+}
+
+.nav-links a {
+    display: inline-block;
+    padding: 20px;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.nav-previous a::before {
+    content: "<<";
+    padding-right: 5px;
+}
+
+.nav-next a::after {
+    content: ">>";
+    padding-left: 5px;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+
+.site-footer {
+    background-color: #000000;
+    padding: 10px;
+}
+
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -719,6 +787,32 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+.widget li a {
+    display: inline-block;
+    line-height: 1.5;
+    padding: 10px 0;
+}
+
+.widget li {
+    border-bottom: 1px dotted #dddddd;
+    list-style: none;
+    padding: 0 10px;
+}
+
+.widget ul,.widget ol {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.widget_calendar th,.widget_calendar td {
+    text-align: center;
+    padding: 5px;
+}
+
+.widget_calendar th:hover, .widget_calendar td:hover {
+    background-color: #eee;
+}
+
 /* Make sure select elements fit in widgets. */
 .widget select {
 	max-width: 100%;
@@ -732,6 +826,36 @@ a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.site-header {
+	background-color: black;
+	color: #fff;
+	box-shadow: 0px 1px 10px black;
+}
+
+.site-header a {
+	color: #fff;
+}
+
+/* Site Title */
+.site-title {
+	margin: 10px auto;
+	text-align: center;
+}
+
+.site-title a {
+	text-decoration: none;
+}
+
+/* Site Description */
+.site-description {
+	font-size: small;
+	padding-left: 20px;
+	font-weight: normal;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -764,12 +888,90 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+.attachment-post-thumbnail {
+    display: block;
+    margin: 0 auto 0.67em;
+}
+
+.site-single .hentry {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Post Archive */
+.gallery,
+.site-archive {
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	flex-wrap: wrap;
+	margin: 20px auto;
+}
+
+.site-archive .post {
+	width: 100%;
+	max-width: -webkit-calc(100% / 3);
+	max-width: calc(100% / 3);
+	padding: 20px;
+	margin:0 auto;
+	background-color: #ffffff;
+}
+.site-archive .post:nth-child(2n+1){
+	background-color: #1b3155;
+	color: #ffffff;
+}
+.site-archive .post:nth-child(2n+2){
+	background-color: #f5f5f5;
+}
+.site-archive .post:nth-child(2n+1) a{
+	color: #ffffff;
+}
+.site-archive .post:nth-child(2n+1) a:hover {
+    color: #aaa;
+}
+.site-archive .page-header {
+    width: 100%;
+    text-align: center;
+}
+
+.site-archive .entry-title {
+  margin-top: 0;
+	font-size: 1.5em
+}
+
+@media screen and (max-width: 37.5em) {
+	.site-archive .post{
+		max-width: 100%;
+	}
+}
+
+
+.main-navigation,
+.site-branding,
+.content-area,
+.site-info {
+    max-width: 980px;
+		margin: auto;
+    padding: 0 20px;
+}
+
 /*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
 	display: none;
+}
+.widget-area {
+    background-color: #f5f5f5;
+		box-shadow: 0px 1px 10px black;
+}
+
+.widget-area > .widget {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /*--------------------------------------------------------------
@@ -845,7 +1047,7 @@ object {
 }
 
 .gallery-item {
-	display: inline-block;
+	margin: 0 auto 10px;
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
